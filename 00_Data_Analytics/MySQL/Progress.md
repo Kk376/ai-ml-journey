@@ -19,3 +19,10 @@ Tracking what I've covered so far in the `00_Data_Analytics/MySQL` folder. Pract
 - **09_Case_Statements_Tutorial.sql** — `CASE WHEN` for categorizing rows (age groups), and a multi-condition bonus/salary calculation.
 - **10_Subqueries_Tutorial.sql** — Subqueries in `WHERE` (with `IN`), subqueries in `SELECT`, and nesting an aggregated query inside another query (derived tables).
 
+## Day 4
+
+- **11_Window_Functions_Tutorial.sql** — Using `OVER()`, `PARTITION BY`, rolling totals, and ranking functions like `ROW_NUMBER()`, `RANK()`, and `DENSE_RANK()`.
+- **12_CTE_Tutorial.sql** — Writing Common Table Expressions (`WITH`), using multiple CTEs in a single query, and aliasing CTE columns.
+- **13_Temporary_Table_Tutorial.sql** — Creating short-lived manual temporary tables and generating temporary tables directly from `SELECT` query results.
+- **14_Scored_Procedures_Tutorial.sql** — Building reusable blocks of code (`CREATE PROCEDURE`), handling multi-statement blocks with `DELIMITER`, and passing parameters (`IN`).
+- **15_Triggers_and_Events_Tutorial.sql** — Automating row insertions across linked tables using `AFTER INSERT` triggers, and scheduling periodic automated tasks with `EVENTS`.
