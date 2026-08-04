@@ -1,6 +1,6 @@
 # AI & ML Journey
 
-Hi, I'm Kushagra.
+Hi, I'm Kushagra Kumar.
 
 This repository is where I'll document my journey into Artificial Intelligence and Machine Learning.
 
@@ -30,4 +30,4 @@ This repository won't always be perfect, and neither will the code inside it. As
 
 One day, I want to look back at my very first commit in this repository and smile because of how far I've come.
 
-Today is that first step.
+Today is that first step (2026-07-30).
