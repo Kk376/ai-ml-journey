@@ -40,3 +40,12 @@ Still maintained consistency by updating the learning log.
 ### Current Status
 - MySQL: Revision ongoing
 - Next focus: MySQL projects
+
+## Day 6 (2026-08-04)
+
+### Revision not completed yet
+
+Still revising MySQL, so couldn't push anything today.
+Revision will be completed in 1-2 more days.
+Then, I'll make Projects and push them here.
+
