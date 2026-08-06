@@ -13,7 +13,8 @@
 - Type Conversion (Implicit and Explicit)
 - Input Output
 - Operators (Arithmetic, Assignment, Comparison, Logical)
+- If Else Statements
 
 ### Next stop:
 
-- If Else Statements
+- Loops
