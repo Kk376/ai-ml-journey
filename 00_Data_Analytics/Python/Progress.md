@@ -12,7 +12,7 @@
 - Indexing and Slicing
 - Type Conversion (Implicit and Explicit)
 - Input Output
-- Operators (Arithmetic, Assignment, Comparision, Logical)
+- Operators (Arithmetic, Assignment, Comparison, Logical)
 
 ### Next stop:
 
