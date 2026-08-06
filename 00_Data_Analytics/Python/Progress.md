@@ -10,5 +10,10 @@
 - Data Types (int, float, complex, string, boolean)
 - Strings
 - Indexing and Slicing
-- Type Conversion (implicit and explicit)
+- Type Conversion (Implicit and Explicit)
 - Input Output
+- Operators (Arithmetic, Assignment, Comparision, Logical)
+
+### Next stop:
+
+- If Else Statements
