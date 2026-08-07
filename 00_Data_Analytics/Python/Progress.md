@@ -15,7 +15,8 @@
 - Operators (Arithmetic, Assignment, Comparison, Logical)
 - If Else Statements
 - For Loop
+- While Loop
 
 ### Next stop:
 
-- While Loop
+- Functions
