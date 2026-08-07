@@ -14,7 +14,8 @@
 - Input Output
 - Operators (Arithmetic, Assignment, Comparison, Logical)
 - If Else Statements
+- For Loop
 
 ### Next stop:
 
-- Loops
+- While Loop
