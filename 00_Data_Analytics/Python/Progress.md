@@ -16,7 +16,8 @@
 - If Else Statements
 - For Loop
 - While Loop
+- Functions
 
 ### Next stop:
 
-- Functions
+- Data Structures
