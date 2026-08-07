@@ -18,6 +18,10 @@
 - While Loop
 - Functions
 
+### In Progress:
+
+- Data Structures -> Lists
+
 ### Next stop:
 
-- Data Structures
+- Data Structures -> Tuples, Dictionaries & Sets
