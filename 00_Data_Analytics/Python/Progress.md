@@ -17,11 +17,12 @@
 - For Loop
 - While Loop
 - Functions
+- Data Structures -> Lists
 
 ### In Progress:
 
-- Data Structures -> Lists
+- Data Structures -> Tuples
 
 ### Next stop:
 
-- Data Structures -> Tuples, Dictionaries & Sets
+- Data Structures -> Dictionaries & Sets
