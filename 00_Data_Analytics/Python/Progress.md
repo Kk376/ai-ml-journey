@@ -17,12 +17,14 @@
 - For Loop
 - While Loop
 - Functions
-- Data Structures -> Lists, Tuples
+- Data Structures -> Lists, Tuples, Sets
 
 ### In Progress:
 
-- Data Structures -> Sets
+- Data Structures -> Dictionaries
 
 ### Next stop:
 
-- Data Structures -> Dictionaries 
+- Exception Handling
+- File Handling
+- Object Oriented Programming (OOP)
