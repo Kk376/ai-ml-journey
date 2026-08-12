@@ -1,7 +1,4 @@
-"""
-Shopping Cart System
-Python program to browse catalog, manage cart items, and checkout with discount rules.
-"""
+"""Shopping Cart - browse products, manage a cart, checkout with discounts."""
 
 
 def get_product_catalog():
@@ -72,7 +69,7 @@ def add_to_cart(catalog, cart):
     quantity = int(qty_input)
     selected_product = catalog[prod_id - 1]
 
-    # check if item already exists in cart
+    # if it's already in the cart, just bump the quantity
     found = False
     for cart_item in cart:
         if cart_item["name"] == selected_product["name"]:
@@ -164,7 +161,7 @@ def checkout(cart):
     subtotal = view_cart(cart)
     discount = 0.0
 
-    # 10% discount if total exceeds 500
+    # 10% off for orders over $500
     if subtotal > 500.0:
         discount = subtotal * 0.10
         print(f"\nYou received a 10% discount of ${discount:.2f} for spending over $500!")

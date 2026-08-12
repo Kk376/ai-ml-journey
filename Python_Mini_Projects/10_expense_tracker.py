@@ -1,11 +1,8 @@
-"""
-Expense Tracker
-Track daily expenses by category, view spending summaries, and stay on budget.
-"""
+"""Expense Tracker - log expenses, view summaries, set budgets."""
 
 
 def add_expense(expenses):
-    # Get expense details from user
+
     description = input("Enter expense description: ").strip()
     if len(description) == 0:
         print("Description cannot be empty.")
@@ -13,7 +10,7 @@ def add_expense(expenses):
 
     amount_input = input("Enter amount spent: ").strip()
 
-    # Validate amount is a positive number
+    # manual float validation (no negatives, no double dots)
     is_valid = True
     dot_count = 0
     for char in amount_input:
@@ -33,7 +30,7 @@ def add_expense(expenses):
         print("Amount must be greater than zero.")
         return
 
-    # Show available categories
+
     categories = ("Food", "Transport", "Shopping", "Bills", "Entertainment", "Health", "Other")
     print("\nAvailable categories:")
     for i in range(len(categories)):
@@ -41,7 +38,7 @@ def add_expense(expenses):
 
     choice = input("Select category number: ").strip()
 
-    # Validate category choice
+
     if not choice.isdigit():
         print("Invalid choice. Expense not added.")
         return
@@ -53,7 +50,7 @@ def add_expense(expenses):
 
     category = categories[choice_num - 1]
 
-    # Store expense as a dictionary
+
     expense = {
         "description": description,
         "amount": amount,
@@ -90,12 +87,12 @@ def view_by_category(expenses):
         print("\nNo expenses recorded yet.")
         return
 
-    # Collect all unique categories that have been used
+    # which categories actually got used
     used_categories = set()
     for exp in expenses:
         used_categories.add(exp["category"])
 
-    # Build a summary dictionary: category -> list of amounts
+    # sum per category
     category_totals = {}
     for exp in expenses:
         cat = exp["category"]
@@ -124,7 +121,7 @@ def view_top_expenses(expenses):
         print("\nNo expenses recorded yet.")
         return
 
-    # Sort expenses by amount
+    # selection sort by amount, descending
     sorted_expenses = []
     for exp in expenses:
         sorted_expenses.append(exp)
@@ -139,7 +136,7 @@ def view_top_expenses(expenses):
         sorted_expenses[i] = sorted_expenses[max_index]
         sorted_expenses[max_index] = temp
 
-    # Show top 5 (or fewer if less than 5 expenses exist)
+    # cap at 5
     count = 5
     if len(sorted_expenses) < 5:
         count = len(sorted_expenses)
@@ -166,7 +163,7 @@ def set_budget(budget_info):
 
     amount_input = input("Enter new monthly budget (or 0 to remove): ").strip()
 
-    # Validate input
+
     is_valid = True
     dot_count = 0
     for char in amount_input:
@@ -214,7 +211,7 @@ def check_budget(expenses, budget_info):
 
     if remaining >= 0:
         print(f"  Remaining      : Rs.{remaining:>9.2f}")
-        # Show percentage used
+    
         percent_used = (total_spent / budget) * 100
         print(f"  Budget Used    : {percent_used:.1f}%")
 
@@ -237,7 +234,7 @@ def delete_expense(expenses):
         print("\nNo expenses to delete.")
         return
 
-    # Show all expenses so user can pick one
+    # list them so the user can pick
     print("\n" + "-" * 45)
     for i in range(len(expenses)):
         exp = expenses[i]
@@ -304,7 +301,7 @@ def main():
         else:
             print("Invalid option. Please choose 1-8.")
 
-    # Final summary before exit
+    # quick recap before closing
     if len(expenses) > 0:
         total = 0.0
         for exp in expenses:

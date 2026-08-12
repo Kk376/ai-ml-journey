@@ -1,4 +1,4 @@
-# Helper dictionary for hexadecimal conversion
+# hex char <-> int mappings
 HEX_LOOKUP = {
     '0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7,
     '8': 8, '9': 9, 'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15
@@ -6,7 +6,7 @@ HEX_LOOKUP = {
 HEX_DIGITS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
 
 
-# Input validation helpers
+# validators
 def is_valid_decimal(s):
     if len(s) == 0:
         return False
@@ -44,7 +44,7 @@ def is_valid_hex(s):
     return True
 
 
-# Conversions from Decimal
+# decimal -> other bases
 def decimal_to_binary(num):
     if num == 0:
         return "0"
@@ -81,7 +81,7 @@ def decimal_to_hexadecimal(num):
     return hex_str
 
 
-# Conversions to Decimal
+# other bases -> decimal
 def binary_to_decimal(binary_str):
     decimal_val = 0
     power = 0

@@ -1,10 +1,8 @@
-"""
-Contact Book Application | Manages contacts
-"""
+"""Contact Book - simple CLI contact manager."""
 
 
 def find_contact_key(contacts, name):
-    # Look up a contact regardless of upper/lowercase
+    # case insensitive lookup
     lower_name = name.lower()
     for key in contacts:
         if key.lower() == lower_name:
@@ -20,7 +18,7 @@ def add_contact(contacts):
         print("Contact name cannot be empty.")
         return
 
-    # Check if contact already exists
+    # duplicate check
     existing_key = find_contact_key(contacts, name)
     if existing_key is not None:
         print(f"A contact named '{existing_key}' already exists.")
@@ -28,7 +26,7 @@ def add_contact(contacts):
         if overwrite != "y":
             print("Contact addition cancelled.")
             return
-        # Remove old entry
+        # drop the old one so the new name casing is used as the key
         del contacts[existing_key]
 
     phone = input("Enter phone number: ").strip()

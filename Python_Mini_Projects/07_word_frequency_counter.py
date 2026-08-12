@@ -1,14 +1,11 @@
-"""
-Word Frequency Counter
-Counts how often each word appears in entered text.
-"""
+"""Word Frequency Counter"""
 
 
 def clean_text(raw_text):
-    # punctuation characters won't be checked for frequency
+    # strip these out before counting
     punctuation = ".,!?;:\"'()[]{}--_/"
 
-    # replace punctuation with space
+
     cleaned = ""
     for char in raw_text.lower():
         if char in punctuation:
@@ -16,13 +13,13 @@ def clean_text(raw_text):
         else:
             cleaned += char
 
-    # split text by whitespace into a list of words
+
     words = cleaned.split()
     return words
 
 
 def count_frequencies(words):
-    # count occurrences of each word
+
     counts = {}
     for word in words:
         if word in counts:
@@ -33,7 +30,7 @@ def count_frequencies(words):
 
 
 def get_frequency(item):
-    # tuple key function for sorted
+    # sort key for (word, count) tuples
     return item[1]
 
 
@@ -44,7 +41,7 @@ def display_results(counts, total_words):
 
     unique_count = len(counts)
 
-    # convert dictionary items into a list of tuples to sort by count
+    # need a list of tuples so we can sort by count
     items_list = list(counts.items())
     sorted_words = sorted(items_list, key=get_frequency, reverse=True)
 

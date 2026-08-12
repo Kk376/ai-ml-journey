@@ -7,7 +7,7 @@ import random
 def get_total_rounds():
     while True:
         rounds_input = input("How many rounds would you like to play? ").strip()
-        # Verify the user entered a positive integer
+        # need a positive int
         if rounds_input.isdigit():
             num_rounds = int(rounds_input)
             if num_rounds > 0:
@@ -41,7 +41,7 @@ def determine_round_winner(user_move, comp_move):
     if user_move == comp_move:
         return "tie"
 
-    # Winning conditions for player
+    # player wins these matchups
     if (
         (user_move == "rock" and comp_move == "scissors")
         or (user_move == "paper" and comp_move == "rock")

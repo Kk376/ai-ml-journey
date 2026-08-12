@@ -3,7 +3,7 @@ A simple quiz program that tests general Python knowledge.
 """
 
 def load_questions():
-    # Store questions, 4 options each, and the correct choice letter
+    # questions
     questions = [
         {
             "question": "What is the correct file extension for Python files?",
@@ -71,7 +71,7 @@ def ask_question(index, item):
     for opt in item['options']:
         print(f"  {opt}")
     
-    # Prompt until user enters a valid choice
+    # keep asking until we get a/b/c/d
     valid_choices = ["a", "b", "c", "d"]
     user_choice = ""
     while user_choice not in valid_choices:
@@ -92,7 +92,7 @@ def evaluate_answer(user_choice, correct_choice):
 
 
 def get_performance_remark(percentage):
-    # Determine remark based on score percentage
+    # pick a remark based on how they did
     if percentage >= 90:
         return "Outstanding achievement!"
     elif percentage >= 75:

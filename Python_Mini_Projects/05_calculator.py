@@ -1,7 +1,4 @@
-"""
-Basic command line Calculator
-Supports basic arithmetic, exponentiation, and modulus operations.
-"""
+"""CLI calculator with basic arithmetic, power, and modulus."""
 
 def add(num1, num2):
     return num1 + num2
@@ -16,7 +13,7 @@ def multiply(num1, num2):
 
 
 def divide(num1, num2):
-    # Guard against division by zero
+    # can't divide by zero
     if num2 == 0:
         return None
     return num1 / num2
@@ -27,7 +24,7 @@ def power(base, exponent):
 
 
 def modulus(num1, num2):
-    # Division by zero applies to modulus as well
+    # same zero check as divide
     if num2 == 0:
         return None
     return num1 % num2
@@ -48,7 +45,7 @@ def show_menu():
 
 
 def get_number(prompt):
-    # Reading number input from user
+
     value = float(input(prompt))
     return value
 
@@ -102,7 +99,7 @@ def run_calculator():
         elif choice in ["1", "2", "3", "4", "5", "6"]:
             perform_calculation(choice)
             
-            # Ask if user wants another calculation
+
             again = input("\nDo you want to perform another calculation? (y/n): ").lower().strip()
             if again != "y" and again != "yes":
                 print("Thank you for using Calculator! Goodbye.")

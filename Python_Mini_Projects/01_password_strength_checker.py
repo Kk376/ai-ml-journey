@@ -1,14 +1,11 @@
-"""
-Password Strength Checker
-Analyzes passwords based on length, uppercase, lowercase, numbers, and special characters.
-"""
+"""Password Strength Checker"""
 
 
 def check_criteria(password):
-    # Check if password has at least 8 characters
+    # min 8 chars
     has_length = len(password) >= 8
 
-    # Set up flags for character types
+
     has_upper = False
     has_lower = False
     has_digit = False
@@ -16,7 +13,7 @@ def check_criteria(password):
 
     special_characters = "!@#$%^&*()_+-=[]{}|;:,.<>?/~`"
 
-    # Inspect each character in the password
+
     for char in password:
         if char.isupper():
             has_upper = True
@@ -27,7 +24,7 @@ def check_criteria(password):
         elif char in special_characters:
             has_special = True
 
-    # Count how many criteria passed
+    # tally up which criteria passed
     score = 0
     if has_length:
         score += 1
@@ -40,7 +37,7 @@ def check_criteria(password):
     if has_special:
         score += 1
 
-    # Map total score to a strength rating
+    # 0-2 weak, 3-4 medium, 5 strong
     if score <= 2:
         rating = "Weak"
     elif score <= 4:
@@ -85,7 +82,7 @@ def print_report(password, results):
 
     print("-" * 45)
 
-    # Provide suggestions if score is not maxed out
+    # suggestions for anything that didn't pass
     if results["score"] < 5:
         print("Suggestions to improve your password:")
         if not results["has_length"]:

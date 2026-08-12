@@ -1,11 +1,7 @@
-"""
-Student Grade Manager
-Collects marks for multiple students, calculates grades, prints report cards,
-and displays overall class statistics.
-"""
+"""Student Grade Manager - collects marks, calculates grades, prints reports."""
 
 def calculate_grade(percentage):
-    # Return letter grade based on percentage threshold
+    # grade thresholds
     if percentage >= 90:
         return "A"
     elif percentage >= 80:
@@ -19,7 +15,7 @@ def calculate_grade(percentage):
 
 
 def get_subject_marks():
-    # Prompt for marks in 5 subjects
+    # hardcoded to 5 subjects for now
     subjects = ["Math", "Science", "English", "History", "Computer"]
     marks = []
     
@@ -43,7 +39,6 @@ def collect_students():
         name = input("Enter student name: ").strip()
         subjects, marks = get_subject_marks()
 
-        # Calculate sum of marks using a loop
         total_marks = 0.0
         for m in marks:
             total_marks += m
@@ -93,11 +88,11 @@ def show_class_summary(students):
         print("\nNo student records available.")
         return
 
-    # Print individual report cards first
+
     for student in students:
         print_report_card(student)
 
-    # Calculate overall class average and find top performer
+    # figure out class average and who's on top
     class_total_percentage = 0.0
     topper = students[0]
 
