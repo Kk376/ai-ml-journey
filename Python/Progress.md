@@ -18,13 +18,13 @@
 - While Loop
 - Functions
 - Data Structures -> Lists, Tuples, Sets, Dictionaries
+- Exception Handling
+- File Handling
 
 ### In Progress:
 
-- Data Structures -> Practice Questions
+- File Handling --- Project
 
 ### Next stop:
 
-- Exception Handling
-- File Handling
 - Object Oriented Programming (OOP)
