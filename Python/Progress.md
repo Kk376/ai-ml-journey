@@ -1,8 +1,8 @@
 # Python Progress
 
-## Beginning Date (2026-08-05)
+## Started On --- 2026-08-05
 
-### What I've learnt so far:
+### What I've learned so far:
 
 - First hello world program in Python
 - Variables
