@@ -20,6 +20,16 @@ Everything I learn, practice, and build will eventually find its way here. That 
 * Personal projects
 * Notes and experiments
 
+## Projects
+
+These are standalone projects I've built along the way to put what I'm learning into practice.
+
+| Project | What It Covers |
+|---|---|
+| [CLI Python CRUD Project](https://github.com/Kk376/cli-python-crud-project) | File handling, functions, exception handling, `pathlib` — a command-line file manager with create, read, update, and delete operations |
+
+More will show up here as I keep going.
+
 ## Why I'm making this public
 
 Learning in public keeps me accountable and gives me a place to look back at how much I've grown. Hopefully, someone else starting their own journey will find something useful here as well.
