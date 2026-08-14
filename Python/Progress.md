@@ -20,11 +20,12 @@
 - Data Structures -> Lists, Tuples, Sets, Dictionaries
 - Exception Handling
 - File Handling
+- CLI CRUD Project -> [Repo](https://github.com/Kk376/cli-python-crud-project)
 
 ### In Progress:
 
-- File Handling --- Project
+- Object Oriented Programming (OOP)
 
 ### Next stop:
 
-- Object Oriented Programming (OOP)
+- OOP Projects
