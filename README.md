@@ -26,7 +26,7 @@ These are standalone projects I've built along the way to put what I'm learning 
 
 | Project | What It Covers |
 |---|---|
-| [CLI Python CRUD Project](https://github.com/Kk376/cli-python-crud-project) | File handling, functions, exception handling, `pathlib` — a command-line file manager with create, read, update, and delete operations |
+| [CLI Python CRUD Project](https://github.com/kk376/cli-python-crud-project) | File handling, functions, exception handling, `pathlib` — a command-line file manager with create, read, update, and delete operations |
 
 More will show up here as I keep going.
 
