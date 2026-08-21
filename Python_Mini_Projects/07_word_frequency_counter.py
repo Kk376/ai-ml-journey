@@ -2,9 +2,8 @@
 
 
 def clean_text(raw_text):
-    # strip these out before counting
+    # Punctuation set replaced with whitespace to isolate adjacent word tokens cleanly
     punctuation = ".,!?;:\"'()[]{}--_/"
-
 
     cleaned = ""
     for char in raw_text.lower():
@@ -13,13 +12,13 @@ def clean_text(raw_text):
         else:
             cleaned += char
 
-
+    # .split() without args collapses consecutive whitespace runs and strips trailing delimiters
     words = cleaned.split()
     return words
 
 
 def count_frequencies(words):
-
+    # O(N) hash map construction for word occurrence frequencies
     counts = {}
     for word in words:
         if word in counts:
@@ -30,21 +29,23 @@ def count_frequencies(words):
 
 
 def get_frequency(item):
-    # sort key for (word, count) tuples
+    # Key extractor targeting frequency integer (index 1) of (word, count) tuple
     return item[1]
 
 
 def display_results(counts, total_words):
+    # Guard against empty token collection
     if not counts:
         print("\nNo valid words found in the provided text.")
         return
 
     unique_count = len(counts)
 
-    # need a list of tuples so we can sort by count
+    # Convert hash map to list of (word, count) 2-tuples for Timsort O(K log K)
     items_list = list(counts.items())
     sorted_words = sorted(items_list, key=get_frequency, reverse=True)
 
+    # Extremities of the sorted distribution
     most_common = sorted_words[0]
     least_common = sorted_words[-1]
 
@@ -92,3 +93,4 @@ def run_word_counter():
 
 if __name__ == "__main__":
     run_word_counter()
+

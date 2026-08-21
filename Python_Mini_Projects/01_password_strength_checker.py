@@ -2,9 +2,8 @@
 
 
 def check_criteria(password):
-    # min 8 chars
+    # Enforce minimum character length baseline
     has_length = len(password) >= 8
-
 
     has_upper = False
     has_lower = False
@@ -13,7 +12,7 @@ def check_criteria(password):
 
     special_characters = "!@#$%^&*()_+-=[]{}|;:,.<>?/~`"
 
-
+    # Single-pass O(N) evaluation across character classes
     for char in password:
         if char.isupper():
             has_upper = True
@@ -24,7 +23,7 @@ def check_criteria(password):
         elif char in special_characters:
             has_special = True
 
-    # tally up which criteria passed
+    # Aggregate total criteria met
     score = 0
     if has_length:
         score += 1
@@ -37,7 +36,7 @@ def check_criteria(password):
     if has_special:
         score += 1
 
-    # 0-2 weak, 3-4 medium, 5 strong
+    # Discrete classification tiers: 0-2 Weak, 3-4 Medium, 5 Strong
     if score <= 2:
         rating = "Weak"
     elif score <= 4:
@@ -56,6 +55,7 @@ def check_criteria(password):
     }
 
     return results
+
 
 
 def print_report(password, results):

@@ -1,12 +1,13 @@
-# hex char <-> int mappings
+# Lookup table for hexadecimal character to numeric value (0-15) conversion
 HEX_LOOKUP = {
     '0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7,
     '8': 8, '9': 9, 'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15
 }
+# Direct index mapping for numeric remainder (0-15) to hex glyph
 HEX_DIGITS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
 
 
-# validators
+# Input validators checking character set constraints and non-empty strings
 def is_valid_decimal(s):
     if len(s) == 0:
         return False
@@ -44,7 +45,7 @@ def is_valid_hex(s):
     return True
 
 
-# decimal -> other bases
+# Decimal to base-N conversion via successive integer division and remainder concatenation
 def decimal_to_binary(num):
     if num == 0:
         return "0"
@@ -81,7 +82,7 @@ def decimal_to_hexadecimal(num):
     return hex_str
 
 
-# other bases -> decimal
+# Base-N to decimal conversion via positional polynomial summation: sum(digit * base^i) from LSB to MSB
 def binary_to_decimal(binary_str):
     decimal_val = 0
     power = 0
@@ -118,6 +119,7 @@ def hexadecimal_to_decimal(hex_str):
         power += 1
         i -= 1
     return decimal_val
+
 
 
 def print_menu():

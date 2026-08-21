@@ -2,7 +2,6 @@
 
 
 def add_expense(expenses):
-
     description = input("Enter expense description: ").strip()
     if len(description) == 0:
         print("Description cannot be empty.")
@@ -10,7 +9,7 @@ def add_expense(expenses):
 
     amount_input = input("Enter amount spent: ").strip()
 
-    # manual float validation (no negatives, no double dots)
+    # Character-level floating-point string validation: enforces single decimal point invariant and digit characters
     is_valid = True
     dot_count = 0
     for char in amount_input:
@@ -30,14 +29,13 @@ def add_expense(expenses):
         print("Amount must be greater than zero.")
         return
 
-
+    # Fixed category schema represented as an immutable tuple
     categories = ("Food", "Transport", "Shopping", "Bills", "Entertainment", "Health", "Other")
     print("\nAvailable categories:")
     for i in range(len(categories)):
         print(f"  {i + 1}. {categories[i]}")
 
     choice = input("Select category number: ").strip()
-
 
     if not choice.isdigit():
         print("Invalid choice. Expense not added.")
@@ -50,7 +48,7 @@ def add_expense(expenses):
 
     category = categories[choice_num - 1]
 
-
+    # Append structured expense dictionary record to state list
     expense = {
         "description": description,
         "amount": amount,
@@ -87,12 +85,12 @@ def view_by_category(expenses):
         print("\nNo expenses recorded yet.")
         return
 
-    # which categories actually got used
+    # Extract distinct categories present across records using a set
     used_categories = set()
     for exp in expenses:
         used_categories.add(exp["category"])
 
-    # sum per category
+    # Aggregate total expenditure per category into an accumulator map
     category_totals = {}
     for exp in expenses:
         cat = exp["category"]
@@ -121,11 +119,12 @@ def view_top_expenses(expenses):
         print("\nNo expenses recorded yet.")
         return
 
-    # selection sort by amount, descending
+    # Shallow copy to preserve original chronological insertion order in caller list
     sorted_expenses = []
     for exp in expenses:
         sorted_expenses.append(exp)
 
+    # In-place Selection Sort O(N^2) descending by expense amount
     for i in range(len(sorted_expenses)):
         max_index = i
         for j in range(i + 1, len(sorted_expenses)):
@@ -136,7 +135,7 @@ def view_top_expenses(expenses):
         sorted_expenses[i] = sorted_expenses[max_index]
         sorted_expenses[max_index] = temp
 
-    # cap at 5
+    # Clamp output display slice to top 5 records or total length
     count = 5
     if len(sorted_expenses) < 5:
         count = len(sorted_expenses)
@@ -163,7 +162,6 @@ def set_budget(budget_info):
 
     amount_input = input("Enter new monthly budget (or 0 to remove): ").strip()
 
-
     is_valid = True
     dot_count = 0
     for char in amount_input:
@@ -183,6 +181,7 @@ def set_budget(budget_info):
         print("Budget cannot be negative.")
         return
 
+    # Mutate budget state dictionary in-place
     budget_info["limit"] = new_limit
     if new_limit == 0:
         print("Budget removed.")
@@ -209,6 +208,7 @@ def check_budget(expenses, budget_info):
     print(f"  Total Spent    : Rs.{total_spent:>9.2f}")
     print("-" * 40)
 
+    # Budget threshold alerting: 75% warning, 90% critical threshold, or deficit overrun
     if remaining >= 0:
         print(f"  Remaining      : Rs.{remaining:>9.2f}")
     
@@ -234,7 +234,7 @@ def delete_expense(expenses):
         print("\nNo expenses to delete.")
         return
 
-    # list them so the user can pick
+    # Display 1-indexed listing for user selection
     print("\n" + "-" * 45)
     for i in range(len(expenses)):
         exp = expenses[i]
@@ -255,6 +255,7 @@ def delete_expense(expenses):
         print("Invalid choice.")
         return
 
+    # Remove element by index (O(N) shift in dynamic list)
     removed = expenses[choice_num - 1]
     expenses.pop(choice_num - 1)
     print(f"Deleted: {removed['description']} - Rs.{removed['amount']:.2f}")
@@ -301,7 +302,7 @@ def main():
         else:
             print("Invalid option. Please choose 1-8.")
 
-    # quick recap before closing
+    # Compute aggregate session summary across recorded items
     if len(expenses) > 0:
         total = 0.0
         for exp in expenses:
@@ -313,3 +314,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

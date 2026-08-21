@@ -1,7 +1,7 @@
 """Student Grade Manager - collects marks, calculates grades, prints reports."""
 
 def calculate_grade(percentage):
-    # grade thresholds
+    # Discrete 10-point percentage threshold tier mapping
     if percentage >= 90:
         return "A"
     elif percentage >= 80:
@@ -15,7 +15,7 @@ def calculate_grade(percentage):
 
 
 def get_subject_marks():
-    # hardcoded to 5 subjects for now
+    # Fixed subject list matched with sequential input scores in parallel list
     subjects = ["Math", "Science", "English", "History", "Computer"]
     marks = []
     
@@ -39,6 +39,7 @@ def collect_students():
         name = input("Enter student name: ").strip()
         subjects, marks = get_subject_marks()
 
+        # Compute aggregate metrics dynamically from subject count
         total_marks = 0.0
         for m in marks:
             total_marks += m
@@ -49,6 +50,7 @@ def collect_students():
         average_marks = total_marks / num_subjects
         grade = calculate_grade(percentage)
 
+        # Composite student schema containing both raw score lists and derived statistics
         student_record = {
             "name": name,
             "subjects": subjects,
@@ -67,6 +69,7 @@ def print_report_card(student):
     print("\n" + "=" * 45)
     print(f"           REPORT CARD: {student['name'].upper()}")
     print("=" * 45)
+    # Left-aligned fixed width formatting (<15, <10) for tabular columnar output
     print(f"{'Subject':<15}{'Marks':<10}")
     print("-" * 45)
 
@@ -84,15 +87,15 @@ def print_report_card(student):
 
 
 def show_class_summary(students):
+    # Guard against ZeroDivisionError on empty class records
     if len(students) == 0:
         print("\nNo student records available.")
         return
 
-
     for student in students:
         print_report_card(student)
 
-    # figure out class average and who's on top
+    # O(N) single-pass accumulation of class percentage and linear scan for peak performer
     class_total_percentage = 0.0
     topper = students[0]
 
@@ -119,3 +122,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

@@ -69,7 +69,7 @@ def add_to_cart(catalog, cart):
     quantity = int(qty_input)
     selected_product = catalog[prod_id - 1]
 
-    # if it's already in the cart, just bump the quantity
+    # Linear search for existing cart item to increment quantity in-place rather than creating duplicate entries
     found = False
     for cart_item in cart:
         if cart_item["name"] == selected_product["name"]:
@@ -145,6 +145,7 @@ def remove_from_cart(cart):
         return
 
     remove_qty = int(qty_input)
+    # Remove record entirely if target quantity is depleted, else decrement in-place
     if remove_qty >= target_item["quantity"]:
         cart.pop(item_id - 1)
         print(f"Removed '{target_item['name']}' from cart.")
@@ -161,7 +162,7 @@ def checkout(cart):
     subtotal = view_cart(cart)
     discount = 0.0
 
-    # 10% off for orders over $500
+    # 10% volume discount applied when cart subtotal crosses the $500 threshold
     if subtotal > 500.0:
         discount = subtotal * 0.10
         print(f"\nYou received a 10% discount of ${discount:.2f} for spending over $500!")
@@ -171,6 +172,7 @@ def checkout(cart):
     print(f"Final Amount Due : ${final_total:.2f}")
     print("\nThank you for shopping with us! Order placed successfully.")
     cart.clear()
+
 
 
 def run_shopping_cart():
